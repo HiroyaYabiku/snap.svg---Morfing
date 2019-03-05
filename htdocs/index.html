@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SVGアイコン モーフィングアニメーション</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="js/snap.svg.js"></script>
+    <script>
+
+$(document).ready(function(){
+    // apple
+    var apple = 'M87.82,69.312c-2.066,4.577-3.059,6.626-5.719,10.673c-3.713,5.652-8.947,12.69-15.435,12.75c-5.763,0.055-7.241-3.749-15.065-3.706c-7.819,0.043-9.454,3.775-15.219,3.722c-6.484-0.061-11.446-6.418-15.161-12.069C10.836,64.877,9.751,46.326,16.156,36.466c4.553-7.006,11.733-11.109,18.485-11.109c6.875,0,11.198,3.77,16.88,3.77c5.515,0,8.875-3.775,16.821-3.775c6.007,0,12.372,3.271,16.908,8.923C70.39,42.419,72.805,63.64,87.82,69.312z M62.312,19.039c2.888-3.707,5.082-8.94,4.285-14.289c-4.717,0.327-10.234,3.326-13.456,7.239c-2.923,3.549-5.338,8.814-4.398,13.936C53.894,26.083,59.222,23.006,62.312,19.039z';
+    // facebook
+    var fb = 'M85,5H15C9.5,5,5,9.5,5,15v70c0,5.505,4.5,10,10,10h35V60H40V47.625h10v-10.25c0-10.82,6.061-18.42,18.83-18.42l9.016,0.01V31.99h-5.986c-4.969,0-6.859,3.73-6.859,7.19v8.45h12.84L75,60H65v35h20c5.5,0,10-4.495,10-10V15C95,9.5,90.5,5,85,5z';
+
+
+
+    var snap   = Snap('#snapsvg-demo1'),
+        toggle = false,
+        path   = snap.path(apple).attr({fill: '#e4007f'});
+
+        snap.hover(
+          function () {
+            path.animate({path: fb, fill:'#00cce4'}, 330, mina.easeinout);
+            toggle = true;
+          },
+          function () {
+            path.animate({path: apple, fill:'#e4007f'}, 330, mina.easeinout);
+            toggle = false;
+          }
+        );
+
+    // snap.click(function(){
+    //     if (!toggle) {
+    //         path.animate({path: fb, fill:'#00cce4'}, 330, mina.easeinout);
+    //         toggle = true;
+    //     } else {
+    //         path.animate({path: apple, fill:'#e4007f'}, 330, mina.easeinout);
+    //         toggle = false;
+    //     }
+    // });
+});
+    </script>
+</head>
+<body>
+<svg id="snapsvg-demo1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg>
+</body>
+</html>
